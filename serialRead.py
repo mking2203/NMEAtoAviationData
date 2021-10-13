@@ -42,7 +42,7 @@ def AviationData(track=0.0, groundSpeed=0.0, crossDir = '', crossError=0.0, desi
         crossDir = 'L'
     elif crossDir == 'L':
         crossDir = 'R'
-        
+
     print ('act. ' + crossDir)
 
     # data
@@ -76,9 +76,20 @@ print('### Aviation converter ###')
 
 # here we initiate the serial port
 if not simulation:
-    #ser = serial.Serial('COM7', 9600, timeout=0.2)
-    ser = serial.Serial('/dev/ttyUSB0', 9600, timeout=0.2)
-    #ser = serial.Serial('/dev/ttyS0', 9600, timeout=0.2)
+
+    startOK = False
+    while not startOK:
+        try:
+            #ser = serial.Serial('COM7', 9600, timeout=0.2)
+            ser = serial.Serial('/dev/ttyUSB0', 9600, timeout=0.2)
+            #ser = serial.Serial('/dev/ttyS0', 9600, timeout=0.2)
+            startOK = True
+        except:
+            pass
+
+        print('wait for serial port....')
+        time.sleep(5)
+
 
 print('wait for GPS data')
 
