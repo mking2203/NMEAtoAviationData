@@ -1,0 +1,36 @@
+imager_1.6.2.exe installieren
+
+Karte einlegen
+Raspberry PI OS (32 BIT) wählen
+SD Karte anwählen
+Image schreiben
+
+Karte in Raspberry einlegen
+Raspberry starten - nach installation sieht man den Desktop
+Sprache auf Deutsch setzen
+Passwort setzen (1234)
+Netzwerk usw. skippen
+Restart
+
+Netwerk anschliessen
+In der Konsole 
+python3 pip install pynmea2
+
+Datei serialRead.py per USB nach /home/pi/ kopieren
+
+python3 /home/pi/serialRead.py über Konsole testen
+
+# on the rasp add a folder home/pi/.config/lxsession/LXDE-pi/
+# then work on the autostart
+# sudo nano ~/.config/lxsession/LXDE-pi/autostart
+# @lxterminal -e python3 /home/pi/serialRead.py
+
+über Abmelden / einen Neustart durchführen 
+
+Info:
+
+-Reboot
+in der Konsole kann man mit "reboot" neu starten
+
+-Liste seriale Ports
+ls -l /dev/tty*
